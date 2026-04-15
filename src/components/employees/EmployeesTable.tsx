@@ -187,7 +187,8 @@ export function EmployeesTable({ data, isLoading, onEdit, onDelete }: EmployeesT
   return (
     <div className="space-y-4">
       <div className="rounded-lg border border-border overflow-hidden">
-        <Table>
+        <div className="overflow-x-auto">
+          <Table>
           <TableHeader>
             {table.getHeaderGroups().map((hg) => (
               <TableRow key={hg.id} className="bg-muted/40 hover:bg-muted/40">
@@ -218,11 +219,12 @@ export function EmployeesTable({ data, isLoading, onEdit, onDelete }: EmployeesT
               ))
             )}
           </TableBody>
-        </Table>
+          </Table>
+        </div>
       </div>
 
       {/* Pagination */}
-      <div className="flex items-center justify-between px-1">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between px-1">
         <p className="text-sm text-muted-foreground">
           Showing{' '}
           <span className="font-medium">

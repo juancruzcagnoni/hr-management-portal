@@ -50,7 +50,7 @@ export function EmployeeFiltersBar({ filters, onChange }: EmployeeFiltersProps) 
         value={filters.area}
         onValueChange={(v) => onChange({ ...filters, area: v as EmployeeFilters['area'] })}
       >
-        <SelectTrigger className="w-[160px]">
+        <SelectTrigger className="w-full sm:w-[160px]">
           <SelectValue>{areaLabel(filters.area)}</SelectValue>
         </SelectTrigger>
         <SelectContent>
@@ -69,7 +69,7 @@ export function EmployeeFiltersBar({ filters, onChange }: EmployeeFiltersProps) 
           onChange({ ...filters, seniority: v as EmployeeFilters['seniority'] })
         }
       >
-        <SelectTrigger className="w-[160px]">
+        <SelectTrigger className="w-full sm:w-[160px]">
           <SelectValue>{seniorityLabel(filters.seniority)}</SelectValue>
         </SelectTrigger>
         <SelectContent>
@@ -86,7 +86,7 @@ export function EmployeeFiltersBar({ filters, onChange }: EmployeeFiltersProps) 
         value={filters.status}
         onValueChange={(v) => onChange({ ...filters, status: v as EmployeeFilters['status'] })}
       >
-        <SelectTrigger className="w-[140px]">
+        <SelectTrigger className="w-full sm:w-[140px]">
           <SelectValue>{statusLabel(filters.status)}</SelectValue>
         </SelectTrigger>
         <SelectContent>

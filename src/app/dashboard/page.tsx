@@ -88,7 +88,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Recent hires */}
-      <div className="max-w-xl">
+      <div className="w-full lg:max-w-xl">
         <RecentHires employees={employees} />
       </div>
     </div>

@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { LayoutDashboard, Users, Building2 } from 'lucide-react'
+import { LayoutDashboard, Users, Building2, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { UserMenu } from './UserMenu'
 
@@ -11,19 +11,37 @@ const navigation = [
   { name: 'Employees', href: '/employees', icon: Users },
 ]
 
-export function Sidebar() {
+interface SidebarProps {
+  open: boolean
+  onClose: () => void
+}
+
+export function Sidebar({ open, onClose }: SidebarProps) {
   const pathname = usePathname()
 
   return (
-    <aside className="fixed left-0 top-0 z-40 h-screen w-64 border-r border-border bg-card">
+    <aside
+      className={cn(
+        'fixed left-0 top-0 z-40 h-screen w-64 border-r border-border bg-card transition-transform duration-200 ease-in-out',
+        'lg:translate-x-0',
+        open ? 'translate-x-0' : '-translate-x-full'
+      )}
+    >
       <div className="flex h-16 items-center gap-3 border-b border-border px-6">
         <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
           <Building2 className="h-5 w-5 text-primary-foreground" />
         </div>
-        <div>
+        <div className="flex-1">
           <p className="text-sm font-semibold leading-none">HR Portal</p>
           <p className="text-xs text-muted-foreground">Management System</p>
         </div>
+        <button
+          className="lg:hidden text-muted-foreground hover:text-foreground"
+          onClick={onClose}
+          aria-label="Close menu"
+        >
+          <X className="h-5 w-5" />
+        </button>
       </div>
 
       <nav className="space-y-1 p-4">
@@ -36,6 +54,7 @@ export function Sidebar() {
             <Link
               key={item.name}
               href={item.href}
+              onClick={onClose}
               className={cn(
                 'flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-150',
                 isActive

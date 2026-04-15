@@ -105,7 +105,7 @@ export function EmployeeFormModal({ open, onOpenChange, employee }: EmployeeForm
         </DialogHeader>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <Label htmlFor="first_name">First Name</Label>
               <Input id="first_name" {...register('first_name')} placeholder="John" />
@@ -135,7 +135,7 @@ export function EmployeeFormModal({ open, onOpenChange, employee }: EmployeeForm
             )}
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <Label>Area</Label>
               <Select
@@ -183,7 +183,7 @@ export function EmployeeFormModal({ open, onOpenChange, employee }: EmployeeForm
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <Label>Status</Label>
               <Select
