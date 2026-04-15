@@ -77,34 +77,6 @@ src/
 
 **Server vs Client components** — layout wrappers, KPI cards, and profile cards are Server Components. Interactive elements (table, filters, modals, charts, notification bell) are Client Components marked with `"use client"`.
 
-## Getting Started
-
-### 1. Supabase setup
-
-Run [`supabase/schema.sql`](supabase/schema.sql) in your Supabase SQL Editor, then enable Realtime for the table:
-
-```sql
-alter publication supabase_realtime add table employees;
-```
-
-### 2. Environment variables
-
-```bash
-# .env.local
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-```
-
-### 3. Install, seed and run
-
-```bash
-npm install
-npm run seed      # clears and inserts 36 sample employees
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) — redirects automatically to `/dashboard`.
-
 ## Why this project?
 
 Built to demonstrate:
@@ -114,7 +86,3 @@ Built to demonstrate:
 - **Supabase Realtime** — websocket-based live updates without polling or manual refresh
 - **TypeScript discipline** — strict mode throughout, no `any`, Zod v4 schemas inferred end-to-end from validation to mutation input
 - **UX detail** — structured skeleton screens that mirror real content layout, empty states, error boundaries, and toast feedback on every action
-
-## License
-
-MIT
